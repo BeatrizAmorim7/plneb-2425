@@ -1,4 +1,4 @@
-# TPC1: Funções de Manipulação de Strings
+# TPC1: Funções de manipulação de strings
 
 O ficheiro TPC1.py contém um conjunto de funções para realizar operações de manipulação de strings, além de um menu interativo para facilitar a execução das funções.
 
