@@ -1,11 +1,11 @@
 # TPC1: Funções de manipulação de strings
 
-O ficheiro `TPC1.py` contém um conjunto de funções para realizar operações de manipulação de strings, além de um menu interativo para facilitar a execução das funções.
+O ficheiro `TPC1.py` contém um conjunto de funções para realizar operações de manipulação de strings, além de um menu interativo para facilitar a execução das mesmas.
 
 ## Funções Implementadas
 
 1. **Reverter a string**:
-   - Função `reverse(s)`: Inverte a string dada como entrada.
+   - Função `reverse(s)`: Inverte a string dada.
 
 2. **Contar quantos 'a' ou 'A' há na string**:
    - Função `how_many(s)`: Conta quantas ocorrências das letras 'a' ou 'A' existem na string fornecida.
@@ -29,7 +29,7 @@ O ficheiro `TPC1.py` contém um conjunto de funções para realizar operações 
    - Função `count(s1, s2)`: Conta o nº de vezes que a substring `s1` aparece na string `s2`.
 
 9. **Verificar se duas strings são anagramas**:
-   - Função `anagrama(s1, s2)`: Determina se as strings `s1` e `s2` são anagramas, isto é, se contêm os mesmos carateres (com a mesma frequência), independentemente da sequência em que aparecem.
+   - Função `anagrama(s1, s2)`: Determina se as strings `s1` e `s2` são anagramas, isto é, se contêm os mesmos carateres (com a mesma frequência), independentemente da ordem em que aparecem.
 
 10. **Calcular a tabela de classes de anagramas**:
     - Função que recebe um dicionário de palavras separadas por vírgulas e calcula as classes de anagramas, agrupando as palavras que possuem as mesmas letras (em qualquer ordem).
@@ -37,7 +37,7 @@ O ficheiro `TPC1.py` contém um conjunto de funções para realizar operações 
 
 ## Menu Interativo
 
-O menu interativo permite ao usuário escolher entre as diferentes funções implementadas. Após a execução de cada operação, o menu é exibido novamente, permitindo a escolha de outra função ou a saída do programa.
+O menu interativo permite ao utilizador escolher entre as diferentes funções implementadas.
 
 As opções do menu são:
 - 1: Reverter a string
