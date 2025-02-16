@@ -43,9 +43,7 @@ O ficheiro `TPC1.py` contém um conjunto de funções para realizar operações 
 
 10. **Calcular a tabela de classes de anagramas**:
     - Para esta questão, foram criadas duas funções. A primeira, `criar_dicionario_anagramas`, recebe uma lista de palavras e cria um dicionário em que as chaves são as letras ordenadas alfabeticamente de cada palavra. Assim, palavras que são anagramas entre si são agrupadas sob a mesma chave. A segunda função, `tabela_anagrama`, percorre o dicionário criado pela primeira função e exibe, de forma formatada, a tabela das classes de anagramas. Cada linha da tabela mostra a sequência de letras ordenadas (a chave) e as palavras associadas a essa chave.
-    - Exemplo: Input →  amor, mora, ramo, roma, galo, algo, estudo, duetos
-    
-   Output: 
+    - Exemplo: 
 Tabela de classes de anagramas:
 
 | Sequência de letras ordenadas        | Palavras anagramas| 
