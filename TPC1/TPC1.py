@@ -53,11 +53,13 @@ def balanceada(s1,s2):
             return False
     return True
 
-#8 
+#8 Calcula o número de ocorrências de s1 em s2
 def count(s1,s2):
     return s2.count(s1)
 
-#9
+#9 Verifica se s1 é anagrama de s2.
+#○ "listen" e "silent": Deve imprimir True
+#○ "hello", "world": Deve imprimir False
 def anagrama(s1,s2):
     if sorted(s1)==sorted(s2):
         return True
@@ -65,6 +67,81 @@ def anagrama(s1,s2):
         return False 
     
 # 10. Dado um dicionário, calcular a tabela das classes de anagramas. 
+
+def criar_dicionario_anagramas(palavras):
+    dicionario = {}
+
+    for palavra in palavras:
+        chave = "".join(sorted(palavra))  
+
+        if chave in dicionario:
+            dicionario[chave].append(palavra)
+        else:
+            dicionario[chave] = [palavra]
+
+    return dicionario
+
+
+def tabela_anagrama(dicionario):
+    print(f"{'Sequência de letras ordenadas':<35}{'Palavras anagramas'}")
+    print("-" * 50)
+
+    for chave, anagramas in dicionario.items():
+        print(f"{chave:<35}{', '.join(anagramas)}")
+
+def exemplos_automaticos():
+    print("\n--- Exemplos Automáticos ---\n")
+
+    # 1. Reverter string
+    s = "abcdef"
+    print(f"reverse('{s}') → '{reverse(s)}'")
+
+    # 2. Contar 'a' e 'A'
+    s = "Ananas e Abacaxi"
+    print(f"how_many('{s}') → {how_many(s)}")
+
+    # 3. Contar vogais
+    s = "Exemplo de teste"
+    print(f"vowels('{s}') → {vowels(s)}")
+
+    # 4. Converter para minúsculas
+    s = "MaIúsculA"
+    print(f"lower('{s}') → '{lower(s)}'")
+
+    # 5. Converter para maiúsculas
+    s = "minúscula"
+    print(f"upper('{s}') → '{upper(s)}'")
+
+    # 6. Verificar capicua
+    s1 = "radar"
+    s2 = "python"
+    print(f"capicua('{s1}') → {capicua(s1)}")
+    print(f"capicua('{s2}') → {capicua(s2)}")
+
+    # 7. Strings balanceadas
+    s1, s2 = "abc", "bacxyz"
+    print(f"balanceada('{s1}', '{s2}') → {balanceada(s1, s2)}")
+    s1, s2 = "xyz", "abc"
+    print(f"balanceada('{s1}', '{s2}') → {balanceada(s1, s2)}")
+
+    # 8. Contar ocorrências
+    s1, s2 = "ab", "abcabcab"
+    print(f"count('{s1}', '{s2}') → {count(s1, s2)}")
+
+    # 9. Verificar anagramas
+    s1, s2 = "listen", "silent"
+    print(f"anagrama('{s1}', '{s2}') → {anagrama(s1, s2)}")
+    s1, s2 = "hello", "world"
+    print(f"anagrama('{s1}', '{s2}') → {anagrama(s1, s2)}")
+
+    # 10. Dicionário de anagramas
+    palavras = ["amor", "mora", "ramo", "roma", "galo", "algo", "estudo", "duetos"]
+    dicionario = criar_dicionario_anagramas(palavras)
+    print("\nTabela de classes de anagramas:")
+    tabela_anagrama(dicionario)
+
+
+
 
 
 
@@ -81,6 +158,8 @@ def menu():
         print("8. Contar o número de ocorrências de s1 em s2")
         print("9. Verificar se duas strings são anagramas")
         print("10. Calcular a tabela de classes de anagramas")
+        print("11. Executar exemplos automáticos")
+
         print("0. Sair")
         
         escolha = input("Escolha a opção: ")
@@ -125,10 +204,17 @@ def menu():
             print("As strings são anagramas?", anagrama(s1, s2))
         
         elif escolha == "10":
+            print("Digite as palavras separadas por vírgulas.\nExemplo: amor, mora, ramo")
 
+            entrada = input("Digite as palavras:")
+            palavras = [palavra.strip() for palavra in entrada.split(",")]            
+            dicionario = criar_dicionario_anagramas(palavras)
+            tabela_anagrama(dicionario)
+        
+        elif escolha == "11":
+            exemplos_automaticos()
 
             
-        
         elif escolha == "0":
             print("A sair do menu...")
             break
