@@ -46,28 +46,12 @@ O ficheiro `TPC1.py` contém um conjunto de funções para realizar operações 
     - Exemplo: Input →  amor, mora, ramo, roma, galo, algo, estudo, duetos
       Output
 Tabela de classes de anagramas:
-----------------------------------------------
-Sequência de letras ordenadas | Palavras anagramas
-----------------------------------------------
-amor                         | amor, mora, ramo, roma
-aglo                         | galo, algo
-deostu                       | estudo, duetos
-----------------------------------------------
-
-
-Colons can be used to align columns.
 
 | Sequência de letras ordenadas        | Palavras anagramas| 
 | ------------- |:-------------:| 
 | amor          | amor, mora, ramo, roma  |
 | aglo          | galo, algo      | 
 | deostu        | estudo, duetos |
-
-
-Markdown | Less | Pretty
---- | --- | ---
-*Still* | `renders` | **nicely**
-1 | 2 | 3
 
 ## Menu Interativo
 
