@@ -55,6 +55,20 @@ deostu                       | estudo, duetos
 ----------------------------------------------
 
 
+Colons can be used to align columns.
+
+| Sequência de letras ordenadas        | Palavras anagramas| 
+| ------------- |:-------------:| 
+| amor          | amor, mora, ramo, roma  |
+| aglo          | galo, algo      | 
+| deostu        | estudo, duetos |
+
+
+Markdown | Less | Pretty
+--- | --- | ---
+*Still* | `renders` | **nicely**
+1 | 2 | 3
+
 ## Menu Interativo
 
 O menu interativo permite ao utilizador escolher entre as diferentes funções implementadas. Além disto, o programa também oferece exemplos automáticos para facilitar o entendimento e a utilização das funções. Estes exemplos são executados automaticamente ao selecionar a opção correspondente, sem a necessidade de inserir dados manualmente.
