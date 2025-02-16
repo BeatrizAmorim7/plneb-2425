@@ -33,7 +33,7 @@ O ficheiro `TPC1.py` contém um conjunto de funções para realizar operações 
    - Função `balanceada(s1, s2)`: Verifica se todos os caracteres da string `s1` estão presentes na string `s2`.
    - Exemplo:
       - balanceada ('aabbcc', 'abcabc') → True
-      - balanceada ('abc', 'abcc') → False
+      - balanceada ('ana', 'arte') → False
 
 8. **Calcular o nº de ocorrências de s1 em s2**:
    - Função `count(s1, s2)`: Conta o nº de vezes que a substring `s1` aparece na string `s2`.
