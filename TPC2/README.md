@@ -68,8 +68,7 @@ palavra_magica("Preciso de um favor.")  # False
 ```
 
 
-## Exercício 3 
-### `narcissismo(linha)`
+## Exercício 3 - `narcissismo(linha)`
 Calcula quantas vezes a palavra "eu" aparece na string, independentemente de estar em maiúsculas ou minúsculas.
 
 **Exemplo:**
@@ -80,8 +79,7 @@ narcissismo(line)   # 6
 ```
 
 
-## Exercício 4
-### `troca_de_curso(linha, novo_curso)`
+## Exercício 4 - `troca_de_curso(linha, novo_curso)`
 Substitui todas as ocorrências de "LEI" pelo nome do curso especificado.
 
 **Exemplo:**
@@ -92,8 +90,7 @@ troca_de_curso(linha, "EngBiom")  # "EngBiom é o melhor curso! Adoro EngBiom! G
 ```
 
 
-## Exercício 5
-### `soma_string(linha)`
+## Exercício 5 - `soma_string(linha)`
 Dada uma string contendo números separados por vírgulas, retorna a soma deles.
 
 **Exemplo:**
@@ -102,8 +99,7 @@ soma_string("4,-6,2,3,8,-3,0,2,-5,1")  # 6
 ```
 
 
-## Exercício 6
-### `pronomes(frase)`
+## Exercício 6 - `pronomes(frase)`
 Encontra e retorna todos os pronomes pessoais presentes na frase dada.
 
 **Exemplo:**
@@ -112,8 +108,7 @@ pronomes("Ela ficou feliz, ele não. Nós ficamos felizes, eles não.")   # ['El
 ```
 
 
-## Exercício 7
-### `variavel_valida(string)`
+## Exercício 7 - `variavel_valida(string)`
 Verifica se uma string é um nome válido para uma variável, começando com uma letra e contendo apenas letras, números ou underscores. 
 
 **Exemplos:**
@@ -124,8 +119,7 @@ variavel_valida("B12?_bB N")  # False
 ```
 
 
-## Exercício 8
-### `inteiros(frase)`
+## Exercício 8 - `inteiros(frase)`
 Identifica e retorna todos os números inteiros presentes na string.
 
 **Exemplos:**
@@ -135,8 +129,7 @@ inteiros("O número 14 é positivo e -9 é negativo")  # ['14', '-9']
 ```
 
 
-## Exercício 9
-### `underscores(string)`
+## Exercício 9 - `underscores(string)`
 Substitui espaços por underscores, garantindo que múltiplos espaços sejam reduzidos a um único underscore. 
 
 **Exemplos:**
@@ -145,8 +138,7 @@ underscores("Substituir string por underscores    . Vários    espaços")  # "Su
 ```
 
 
-## Exercício 10
-### `codigos_postais(lista_numeros)`
+## Exercício 10 - `codigos_postais(lista_numeros)`
 Recebe uma lista de códigos postais e divide-os com base no hífen. Retorna uma lista de tuplos.
 
 **Exemplo:**
