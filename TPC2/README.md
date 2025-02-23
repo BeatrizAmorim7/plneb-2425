@@ -4,7 +4,9 @@ O ficheiro `Ficha_RE_1.ipynb`, presente nesta pasta, descreve diversas funções
 
 ## Funções e exemplos
 
-### 1. `verifica_hello(linha)`
+### Exercício 1
+
+### 1.1 `verifica_hello(linha)`
 Determina se a palavra "hello" aparece no início da linha. 
 
 **Exemplos:**
