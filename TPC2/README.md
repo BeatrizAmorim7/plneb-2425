@@ -4,9 +4,9 @@ O ficheiro `Ficha_RE_1.ipynb`, presente nesta pasta, descreve diversas funções
 
 # Funções e exemplos
 
-### Exercício 1
+## Exercício 1
 
-#### 1.1 `verifica_hello(linha)`
+### 1.1 `verifica_hello(linha)`
 Determina se a palavra "hello" aparece no início da linha. 
 
 **Exemplos:**
@@ -57,9 +57,9 @@ line = "bananas, laranjas, maçãs, uvas, melancias, cerejas, kiwis, etc."
 separar_frutas(line)   # ['bananas', ' laranjas', ' maçãs', ' uvas', ' melancias', ' cerejas', ' kiwis', ' etc.']
 ```
 
-### Exercício 2
 
-#### `palavra_magica(frase)`
+## Exercício 2
+### `palavra_magica(frase)`
 Verifica se a frase termina com "por favor", seguido de uma pontuação válida, como a vírgula, ponto final ou ponto de exclamação.
 
 **Exemplos:**
@@ -68,9 +68,9 @@ palavra_magica("Posso ir à casa de banho, por favor?")  # True
 palavra_magica("Preciso de um favor.")  # False
 ```
 
-### Exercício 3 
 
-#### `narcissismo(linha)`
+## Exercício 3 
+### `narcissismo(linha)`
 Calcula quantas vezes a palavra "eu" aparece na string, independentemente de estar em maiúsculas ou minúsculas.
 
 **Exemplo:**
@@ -80,8 +80,8 @@ line = "Eu não sei se eu quero continuar a ser eu. Por outro lado, eu ser eu é
 narcissismo(line)   # 6
 ```
 
-## Exercício 4
 
+## Exercício 4
 ### `troca_de_curso(linha, novo_curso)`
 Substitui todas as ocorrências de "LEI" pelo nome do curso especificado.
 
@@ -92,8 +92,8 @@ linha = "LEI é o melhor curso! Adoro LEI! Gostar de LEI devia ser uma lei."
 troca_de_curso(linha, "EngBiom")  # "EngBiom é o melhor curso! Adoro EngBiom! Gostar de EngBiom devia ser uma lei."
 ```
 
-## Exercício 5
 
+## Exercício 5
 ### `soma_string(linha)`
 Dada uma string contendo números separados por vírgulas, retorna a soma deles.
 
@@ -102,9 +102,9 @@ Dada uma string contendo números separados por vírgulas, retorna a soma deles.
 soma_string("4,-6,2,3,8,-3,0,2,-5,1")  # 6
 ```
 
-## Exercício 6
 
-###`pronomes(frase)`
+## Exercício 6
+### `pronomes(frase)`
 Encontra e retorna todos os pronomes pessoais presentes na frase dada.
 
 **Exemplo:**
@@ -112,8 +112,8 @@ Encontra e retorna todos os pronomes pessoais presentes na frase dada.
 pronomes("Ela ficou feliz, ele não. Nós ficamos felizes, eles não.")   # ['Ela', 'ele', 'Nós', 'eles']
 ```
 
-## Exercício 7
 
+## Exercício 7
 ### `variavel_valida(string)`
 Verifica se uma string é um nome válido para uma variável, começando com uma letra e contendo apenas letras, números ou underscores. 
 
@@ -124,8 +124,8 @@ variavel_valida("2123_bB_")  # False
 variavel_valida("B12?_bB N")  # False
 ```
 
-## Exercício 8
 
+## Exercício 8
 ### `inteiros(frase)`
 Identifica e retorna todos os números inteiros presentes na string.
 
@@ -135,8 +135,8 @@ inteiros("Existem 3 casos, 2 de homicídio e 1 de suicídio")  # ['3', '2', '1']
 inteiros("O número 14 é positivo e -9 é negativo")  # ['14', '-9']
 ```
 
-## Exercício 9
 
+## Exercício 9
 ### `underscores(string)`
 Substitui espaços por underscores, garantindo que múltiplos espaços sejam reduzidos a um único underscore. 
 
@@ -145,8 +145,8 @@ Substitui espaços por underscores, garantindo que múltiplos espaços sejam red
 underscores("Substituir string por underscores    . Vários    espaços")  # "Substituir_string_por_underscores_._Vários_espaços"
 ```
 
-## Exercício 10
 
+## Exercício 10
 ### `codigos_postais(lista_numeros)`
 Recebe uma lista de códigos postais e divide-os com base no hífen. Retorna uma lista de tuplos.
 
