@@ -57,9 +57,9 @@ line = "bananas, laranjas, maçãs, uvas, melancias, cerejas, kiwis, etc."
 separar_frutas(line)   # ['bananas', ' laranjas', ' maçãs', ' uvas', ' melancias', ' cerejas', ' kiwis', ' etc.']
 ```
 
-## Exercício 2
+### Exercício 2
 
-### `palavra_magica(frase)`
+#### `palavra_magica(frase)`
 Verifica se a frase termina com "por favor", seguido de uma pontuação válida, como a vírgula, ponto final ou ponto de exclamação.
 
 **Exemplos:**
@@ -68,9 +68,9 @@ palavra_magica("Posso ir à casa de banho, por favor?")  # True
 palavra_magica("Preciso de um favor.")  # False
 ```
 
-## Exercício 3 
+### Exercício 3 
 
-### `narcissismo(linha)`
+#### `narcissismo(linha)`
 Calcula quantas vezes a palavra "eu" aparece na string, independentemente de estar em maiúsculas ou minúsculas.
 
 **Exemplo:**
