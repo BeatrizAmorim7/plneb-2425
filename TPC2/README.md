@@ -2,7 +2,7 @@
 
 O ficheiro `Ficha_RE_1.ipynb`, presente nesta pasta, descreve diversas funções usadas para a manipulação de strings utilizando expressões regulares em Python. 
 
-## Funções e exemplos
+# Funções e exemplos
 
 ## Exercício 1
 
