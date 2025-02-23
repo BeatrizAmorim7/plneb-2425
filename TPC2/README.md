@@ -14,6 +14,7 @@ verifica_hello("goodbye world")  # False.
 verifica_hello("hi, hello there")  # False.
 ```
 
+
 ### 1.2. `encontrar_hello_string(line)`
 Verifica se a palavra "hello" aparece em qualquer posição da linha.
 
