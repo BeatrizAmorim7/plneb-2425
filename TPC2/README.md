@@ -57,7 +57,7 @@ line = "bananas, laranjas, maçãs, uvas, melancias, cerejas, kiwis, etc."
 separar_frutas(line)   # ['bananas', ' laranjas', ' maçãs', ' uvas', ' melancias', ' cerejas', ' kiwis', ' etc.']
 ```
 
-## Exercício 2. 
+## Exercício 2
 
 ### `palavra_magica(frase)`
 Verifica se a frase termina com "por favor", seguido de uma pontuação válida, como a vírgula, ponto final ou ponto de exclamação.
@@ -68,7 +68,9 @@ palavra_magica("Posso ir à casa de banho, por favor?")  # True
 palavra_magica("Preciso de um favor.")  # False
 ```
 
-### 3. `narcissismo(linha)`
+## Exercício 3 
+
+### `narcissismo(linha)`
 Calcula quantas vezes a palavra "eu" aparece na string, independentemente de estar em maiúsculas ou minúsculas.
 
 **Exemplo:**
@@ -78,7 +80,9 @@ line = "Eu não sei se eu quero continuar a ser eu. Por outro lado, eu ser eu é
 narcissismo(line)   # 6
 ```
 
-### 4. `troca_de_curso(linha, novo_curso)`
+## Exercício 4
+
+### `troca_de_curso(linha, novo_curso)`
 Substitui todas as ocorrências de "LEI" pelo nome do curso especificado.
 
 **Exemplo:**
@@ -88,7 +92,9 @@ linha = "LEI é o melhor curso! Adoro LEI! Gostar de LEI devia ser uma lei."
 troca_de_curso(linha, "EngBiom")  # "EngBiom é o melhor curso! Adoro EngBiom! Gostar de EngBiom devia ser uma lei."
 ```
 
-### 5. `soma_string(linha)`
+## Exercício 5
+
+### `soma_string(linha)`
 Dada uma string contendo números separados por vírgulas, retorna a soma deles.
 
 **Exemplo:**
