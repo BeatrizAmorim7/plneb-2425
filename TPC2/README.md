@@ -102,7 +102,9 @@ Dada uma string contendo números separados por vírgulas, retorna a soma deles.
 soma_string("4,-6,2,3,8,-3,0,2,-5,1")  # 6
 ```
 
-### 6. `pronomes(frase)`
+## Exercício 6
+
+###`pronomes(frase)`
 Encontra e retorna todos os pronomes pessoais presentes na frase dada.
 
 **Exemplo:**
@@ -110,7 +112,9 @@ Encontra e retorna todos os pronomes pessoais presentes na frase dada.
 pronomes("Ela ficou feliz, ele não. Nós ficamos felizes, eles não.")   # ['Ela', 'ele', 'Nós', 'eles']
 ```
 
-### 7. `variavel_valida(string)`
+## Exercício 7
+
+### `variavel_valida(string)`
 Verifica se uma string é um nome válido para uma variável, começando com uma letra e contendo apenas letras, números ou underscores. 
 
 **Exemplos:**
@@ -120,7 +124,9 @@ variavel_valida("2123_bB_")  # False
 variavel_valida("B12?_bB N")  # False
 ```
 
-### 8. `inteiros(frase)`
+## Exercício 8
+
+### `inteiros(frase)`
 Identifica e retorna todos os números inteiros presentes na string.
 
 **Exemplos:**
@@ -129,7 +135,9 @@ inteiros("Existem 3 casos, 2 de homicídio e 1 de suicídio")  # ['3', '2', '1']
 inteiros("O número 14 é positivo e -9 é negativo")  # ['14', '-9']
 ```
 
-### 9. `underscores(string)`
+## Exercício 9
+
+### `underscores(string)`
 Substitui espaços por underscores, garantindo que múltiplos espaços sejam reduzidos a um único underscore. 
 
 **Exemplos:**
@@ -137,7 +145,9 @@ Substitui espaços por underscores, garantindo que múltiplos espaços sejam red
 underscores("Substituir string por underscores    . Vários    espaços")  # "Substituir_string_por_underscores_._Vários_espaços"
 ```
 
-### 10. `codigos_postais(lista_numeros)`
+## Exercício 10
+
+### `codigos_postais(lista_numeros)`
 Recebe uma lista de códigos postais e divide-os com base no hífen. Retorna uma lista de tuplos.
 
 **Exemplo:**
