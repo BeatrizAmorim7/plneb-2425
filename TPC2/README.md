@@ -57,7 +57,8 @@ line = "bananas, laranjas, maçãs, uvas, melancias, cerejas, kiwis, etc."
 separar_frutas(line)   # ['bananas', ' laranjas', ' maçãs', ' uvas', ' melancias', ' cerejas', ' kiwis', ' etc.']
 ```
 
-### Exercício 2. 
+# Exercício 2. 
+
 ## `palavra_magica(frase)`
 Verifica se a frase termina com "por favor", seguido de uma pontuação válida, como a vírgula, ponto final ou ponto de exclamação.
 
