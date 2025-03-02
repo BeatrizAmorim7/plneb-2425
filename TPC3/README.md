@@ -1,4 +1,4 @@
-# TPC3 - Dicionário de Conceitos Médicos
+# TPC3 - Dicionário de conceitos médicos
 
 O ficheiro `TPC3.py` processa um documento de texto (`dicionario_medico.txt`) que contém conceitos médicos e as suas respetivas descrições, e cria um ficheiro HTML formatado com essa informação.
 
