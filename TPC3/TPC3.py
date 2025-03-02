@@ -10,7 +10,7 @@ texto = re.sub("\f","",texto)
 
 
 #marcar
-#queremos marcar os nossos conceitos - colocar marca @ - \n\n é a linha de espaço
+#queremos marcar os nossos conceitos - colocar marca @ 
 
 
 #é preciso adicionar isto, porque posteriormente com o processamento realizado, é necessário que acabe com . para apanhar o primeiro conceito
