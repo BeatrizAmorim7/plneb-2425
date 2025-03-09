@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Google Fonts e Font Awesome -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&family=Sen:wght@400;700;800&display=swap" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
+  <title>Guia de Filmes e Séries</title>
+  <style>
+
+  /*Estilos gerais*/
+
+    * { margin: 0; padding: 0; box-sizing: border-box; } /*remove margens*/
+    body { 
+      font-family: "Roboto", sans-serif; /*fonte padrão*/
+      background-color: #a6a4be85; /*cor de fundo*/
+      color: #000; /*cor do texto*/
+    }
+
+    /* Container e secções */
+    .container { padding: 20px 50px; }
+
+    /* Títulos das secções */
+    .section-title {
+      font-family: 'Pacifico', cursive;
+      font-size: 45px;
+      font-weight: bold;
+      color: #000;
+      margin-bottom: 20px; /*espaçamento abaixo do título*/
+    }
+
+    /* Grid para filmes e séries */
+    .media-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr); /* 5 itens por linha */
+      gap: 20px; /* Espaço entre os itens */
+      margin-bottom: 40px;
+    }
+
+    .media-item { /*permite que elementos se sobreponham a imagem */
+      position: relative;
+      cursor: pointer;
+    }
+
+    .media-item img { /*imagem dentro que cada item (de cada retangulo onde tem a imagem)*/
+      width: 100%; /* A imagem ocupa 100% do espaço do item */
+      height: 300px;
+      object-fit: cover; /* Garante que a imagem cubra o espaço */
+      border-radius: 15px;
+      transition: transform 0.5s ease, opacity 0.5s ease; 
+    }
+
+    .media-item:hover img { /*quando a pessa passa com o rato sobre o filme/serie, a imagem aumenta de tamanho 10%*/
+      transform: scale(1.1);
+      opacity: 0.7;
+    }
+
+    /* Overlay para a camada dos detalhes */
+    .details-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.85);
+      color: #fff;
+      border-radius: 15px;
+      opacity: 0; /*inicialmente é invisivel e torna-se visivel quando o item é hovered*/
+      transition: opacity 0.5s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 10px;
+    }
+    .media-item:hover .details-overlay { /*quando algo passa por cima do item, a opacidade do overlay é ajustada para 1 para aparecer*/
+      opacity: 1;
+    }
+    
+    .details-overlay .title { /*tamanhos e carateristicas do texto dentro do overlay*/
+      color: #ffcc00;
+      font-size: 20px;
+      font-weight: bold;
+      text-transform: uppercase;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    }
+
+    .details-overlay .desc, .details-overlay .info {
+      font-size: 14px;
+      margin-bottom: 5px;
+    }
+
+    /* Estilo para a seção inicial - para o titulo e frase inicial */
+    .intro-section {
+      background-color: #7e60605b;
+      color: rgb(47, 46, 46);
+      padding: 60px 40px;
+      text-align: center;
+      
+    }
+    .intro-section .section-title {
+      font-size: 40px;
+      margin-bottom: 20px;
+      font-family: 'Lobster', cursive;
+      font-weight: bold; 
+    }
+    .intro-section .section-description {
+      font-size: 18px;
+      line-height: 1.6;
+      font-family: 'Quicksand', sans-serif;
+    }
+
+
+    .info-section { /*para as informações do fim*/
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 20px;
+      background: #8c6d6d;
+      padding: 20px;
+      border-radius: 12px;
+      color: white;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    .info-category {
+      flex: 1;
+      min-width: 250px;
+    }
+
+    .info-category h3 {
+      font-size: 20px;
+      margin-bottom: 12px;
+      border-left: 4px solid #ffffff;
+      padding-left: 10px;
+      color: #ffffff;
+      font-weight: bold;
+    }
+
+    .info-category ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .info-category li {
+      margin: 10px 0;
+      background: #333;
+      padding: 10px 15px;
+      border-radius: 8px;
+      transition: 0.3s;
+    }
+
+    .info-category a {
+      color: #ffffff;
+      text-decoration: none;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .info-category li:hover {
+      background: #6868685e;
+    }
+
+    .info-category a:hover {
+      text-decoration: underline;
+    }
+
+  </style>
+</head>
+<body>
+
+  <section class="intro-section">
+    <div class="container">
+      <h2 class="section-title">GUIA DE SÉRIES E FILMES</h2>
+      <p class="section-description">
+        Descubra uma seleção de filmes e séries que marcaram diferentes épocas e conquistaram o público! Desde clássicos intemporais até às produções mais recentes, existem opções para todos os gostos e estilos.
+      </p>
+    </div>
+  </section>
+
+  <div class="container">
+    <!-- Filmes Section -->
+    <div class="movies-section">
+      <h1 class="section-title">Filmes</h1>
+      
+      <!-- Grid de Filmes -->
+      <div class="media-grid">
+        <!-- Filme 1 -->
+        <div class="media-item" data-type="movie">
+          <img src="img/1.jpg" alt="Anora (2024)">
+          <div class="details-overlay">
+            <div class="title">Anora (2024)</div>
+            <div class="desc">Anora, uma jovem trabalhadora do sexo em Brooklyn, tem a oportunidade de viver uma história de Cinderela quando conhece e casa impulsivamente com o filho de um oligarca. Quando a notícia chega à Rússia, o seu conto de fadas é ameaçado quando os pais do noivo partem para Nova Iorque para anular o casamento.</div>
+          </div>
+        </div>
+        <!-- Filme 2 -->
+        <div class="media-item" data-type="movie">
+          <img src="img/2.jpg" alt="Dune: Part Two (2024)">
+          <div class="details-overlay">
+            <div class="title">Dune: Part Two (2024)</div>
+            <div class="desc">Dando sequência aos acontecimentos do primeiro filme, o público novamente segue o jovem Paul Atreides, que agora precisa de tomar a decisão mais difícil de sua vida: escolher entre o amor ou o destino do planeta Arrakis. Assim, ao lado de Chani e dos Fremen, o protagonista prepara-se para uma guerra contra os conspiradores que destruíram sua família numa verdadeira jornada de vingança..</div>
+          </div>
+        </div>
+
+        <div class="media-item" data-type="movie">
+          <img src="img/3.jpg">
+          <div class="details-overlay">
+            <div class="title">The Brutalist (2024)</div>
+            <div class="desc">Quando um arquiteto visionário e a sua mulher fogem da Europa pós-guerra em 1947 para reconstruir o seu legado e testemunhar o nascimento dos Estados Unidos modernos, as suas vidas são alteradas para sempre por um misterioso e rico cliente..</div>
+          </div>
+        </div>
+
+        <div class="media-item" data-type="movie">
+          <img src="img/4.jpg">
+          <div class="details-overlay">
+            <div class="title">The Da Vinci Code (2006)</div>
+            <div class="desc">Um assassinato dentro do Louvre, e pistas nas pinturas de Da Vinci, levaram à descoberta de um mistério religioso protegido por uma sociedade secreta por dois mil anos, o que poderia abalar os fundamentos do cristianismo.</div>
+          </div>
+        </div>
+
+        <!-- Filme 5 -->
+        <div class="media-item" data-type="movie">
+          <img src="img/5.jpg">
+          <div class="details-overlay">
+            <div class="title">Mamma Mia! (2008)</div>
+            <div class="desc">Donna é uma mãe solteira e independente que gere um pequeno e idílico hotel numa ilha grega. A filha Sophie vai casar e para o casamento Donna convida as suas melhores amigas. Mas Sophie, que secretamente sonha encontrar o pai, faz também três convites inesperados. À ilha chegam três homens que pertenceram ao passado de Donna, sendo que qualquer um deles pode ser o pai de Sophie.</div>
+          </div>
+        </div>
+
+        <!-- Filme 6 -->
+        <div class="media-item" data-type="movie">
+          <img src="img/6.jpg">
+          <div class="details-overlay">
+            <div class="title">Inside Out (2015)</div>
+            <div class="desc">Com a mudança para uma nova cidade, as emoções de Riley, que tem apenas 11 anos de idade, ficam extremamente agitadas. Uma confusão na sala de controle do seu cérebro deixa a Alegria e a Tristeza de fora, afetando a vida de Riley radicalmente.</div>
+          </div>
+        </div>
+
+        <!-- Filme 7 -->
+        <div class="media-item" data-type="movie">
+          <img src="img/7.jpg">
+          <div class="details-overlay">
+            <div class="title">Homem-Aranha: Regresso a Casa (2017)</div>
+            <div class="desc">Depois de lutar ao lado dos Vingadores, chegou a hora do jovem Peter voltar para casa em Nova York. Sob o olhar atento do mentor Tony Stark, Peter começa a abraçar sua nova identidade como Homem-Aranha e combate diariamente pequenos crimes nas redondezas. Ele acredita que encontrou a missão de sua vida quando o terrível vilão Abutre surge ameaçando a cidade.</div>
+          </div>
+        </div>
+
+
+        <div class="media-item" data-type="movie">
+          <img src="img/8.jpg">
+          <div class="details-overlay">
+            <div class="title">Avatar: O Caminho Da Água (2022)</div>
+            <div class="desc">Após formar uma família, Jake Sully e Ney'tiri fazem de tudo para ficarem juntos. No entanto, acabam por ter de sair de casa e explorar as regiões de Pandora quando uma antiga ameaça ressurge, e Jake deve travar uma guerra difícil contra os humanos.</div>
+          </div>
+        </div>
+
+        <!-- Filme 9 -->
+        <div class="media-item" data-type="movie">
+          <img src="img/9.jpg" >
+          <div class="details-overlay">
+            <div class="title">Star Wars: Os Últimos Jedi (Episódio VIII) (2017) </div>
+            <div class="desc">O Despertar da Força" juntam forças com lendas da galáxia e embarcam numa aventura épica e emocionante onde se desvendam novos mistérios da Força e revelações chocantes do passado. Algumas sequências ou padrões com flashes de luz podem afetar os espectadores com fotossensibilidade.</div>
+          </div>
+        </div>
+
+        <!-- Filme 10 -->
+        <div class="media-item" data-type="movie">
+          <img src="img/10.jpg">
+          <div class="details-overlay">
+            <div class="title">Ratatouille (2007)</div>
+            <div class="desc">Um rato que pode cozinhar forja uma aliança incomum com um jovem rapaz num famoso restaurante em Paris.</div>
+          </div>
+        </div>
+
+        <!-- Filme 11 -->
+        <div class="media-item" data-type="movie">
+          <img src="img/11.jpg" >
+          <div class="details-overlay">
+            <div class="title">Harry Potter e a Pedra Filosofal (2001)</div>
+            <div class="desc">Harry Potter é um rapaz que, após a misteriosa morte dos pais, mora com os tios. Harry leva uma vida de privações, mas a sua história muda de rumo quando completa 11 anos e descobre que é um feiticeiro, ingressando na escola de magia de Hogwarts.</div>
+          </div>
+        </div>
+
+        <!-- Filme 12 -->
+        <div class="media-item" data-type="movie">
+          <img src="img/12.jpg">
+          <div class="details-overlay">
+            <div class="title">Velocidade Furiosa 7 (2015)</div>
+            <div class="desc">Um agente do governo oferece ajuda para cuidar de Shaw em troca de Dom e o grupo resgatar um hacker sequestrado. Dessa vez, não se trata apenas de velocidade: a corrida é pela sobrevivência.</div>
+          </div>
+        </div>
+
+        <!-- Filme 13 -->
+        <div class="media-item" data-type="movie">
+          <img src="img/13.jpg">
+          <div class="details-overlay">
+            <div class="title">Joker (2019)</div>
+            <div class="desc">
+                Isolado, intimidado e desconsiderado pela sociedade, o fracassado comediante Arthur Fleck inicia o seu caminho como uma mente criminosa após assassinar três homens em pleno metro. A sua ação inicia um movimento popular contra a elite de Gotham City, da qual Thomas Wayne é seu maior representante.</div>
+          </div>
+        </div>
+
+        <!-- Filme 14 -->
+        <div class="media-item" data-type="movie">
+          <img src="img/14.jpg">
+          <div class="details-overlay">
+            <div class="title">Bohemian Rhapsody (2018)</div>
+            <div class="desc">Bohemian Rhapsody é uma celebração fascinante dos Queen, da sua música e do seu extraordinário vocalista, Freddie Mercury, que desafiou os estereótipos e as convenções e se tornou num dos artistas mais amados da história. Após a ascensão meteórica dos Queen, o seu som revolucionário e a carreira a solo de Freddie, o filme narra também o reencontro da banda e uma das melhores atuações da história do rock.</div>
+          </div>
+        </div>
+
+        <div class="media-item" data-type="movie">
+          <img src="img/15.jpg">
+          <div class="details-overlay">
+            <div class="title">Madame Web (2024)</div>
+            <div class="desc">Cassandra Webb, uma paramédica em Manhattan, tem habilidades de clarividência. Forçada a confrontar revelações sobre seu passado, ela forja uma relação com três jovens destinadas a futuros poderosos.</div>
+          </div>
+        </div>
+
+        <!-- Filme 16 -->
+        <div class="media-item" data-type="movie">
+          <img src="img/16.jpg">
+          <div class="details-overlay">
+            <div class="title">The Hunger Games: A Revolta - Parte 1 (2014)</div>
+            <div class="desc">Após sobreviver à temível arena dos Jogos Vorazes, Katniss Everdeen está desanimada e destruída. A presidência quer que Katniss lidere uma "resistência" e mobilize a população em uma empreitada que irá colocá-la no centro da trama para desmascarar Snow.</div>
+          </div>
+        </div>
+
+        <!-- Filme 17 -->
+        <div class="media-item" data-type="movie">
+          <img src="img/17.jpg">
+          <div class="details-overlay">
+            <div class="title">O Rei Leão (2019)</div>
+            <div class="desc">Nas terras altas de África, o leão reina com sabedoria e generosidade, conquistando o respeito do seu povo. Simba, o seu jovem filho e herdeiro, prepara-se para um dia, seguir os passos do pai e proteger o delicado equilíbrio entre todas as formas de vida.</div>
+          </div>
+        </div>
+
+        <!-- Filme 18 -->
+        <div class="media-item" data-type="movie">
+          <img src="img/18.jpg">
+          <div class="details-overlay">
+            <div class="title">Harry Potter e o Cálice de Fogo (2005)</div>
+            <div class="desc">Harry retorna para o seu 4ºano na Escola de Magia e Bruxaria de Hogwarts, junto com os seus amigos Ron e Hermione. Desta vez, acontece um torneio entre as três maiores escola de magia, com um participante selecionado de cada escola, pelo Cálice de Fogo. O nome de Harry aparece, mesmo não tendo se inscrito, e ele precisa de competir.</div>
+          </div>
+        </div>
+
+        <!-- Filme 19 -->
+        <div class="media-item" data-type="movie">
+          <img src="img/19.jpg">
+          <div class="details-overlay">
+            <div class="title">Oppenheimer (2023)</div>
+            <div class="desc">O físico J. Robert Oppenheimer trabalha com uma equipa de cientistas durante o Projeto Manhattan, levando ao desenvolvimento da bomba atómica.</div>
+          </div>
+        </div>
+
+        <!-- Filme 20 -->
+        <div class="media-item" data-type="movie">
+          <img src="img/20.jpg">
+          <div class="details-overlay">
+            <div class="title">Star Wars: A Ascensão de Skywalker (2019)</div>
+            <div class="desc">Com o retorno do Imperador Palpatine, a Resistência toma a frente da batalha. Treinando para ser uma completa Jedi, Rey encontra-se em conflito com passado e futuro, e teme pelas respostas que pode conseguir com Kylo Ren.</div>
+          </div>
+        </div>
+
+        <!-- Filme 21 -->
+        <div class="media-item" data-type="movie">
+          <img src="img/21.jpg">
+          <div class="details-overlay">
+            <div class="title">Barbie (2023)</div>
+            <div class="desc">Depois de ser expulsa da Barbieland por ser uma boneca de aparência menos do que perfeita, Barbie parte para o mundo humano à procura da verdadeira felicidade.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Séries Section -->
+    <div class="series-section">
+      <h1 class="section-title">Séries</h1>
+      
+      <!-- Grid de Séries -->
+      <div class="media-grid">
+        <!-- Série 1 -->
+        <div class="media-item" data-type="series">
+          <img src="img/22.jpg" alt="Breaking Bad">
+          <div class="details-overlay">
+            <div class="title">Breaking Bad</div>
+            <div class="desc">Um professor do secundário com cancro do pulmão terminal junta-se a um ex-aluno para fabricar e vender metanfetaminas como forma de garantir o futuro da sua família.</div>
+            <div class="info">Temporadas: 5</div>
+            <div class="info">Episódios: 62</div>
+            <div class="info">Elenco: Bryan Cranston, Anna Gunn, Aaron Paul</div>         
+           </div>
+        </div>
+
+        <!-- Série 2 -->
+        <div class="media-item" data-type="series">
+          <img src="img/23.jpg">
+          <div class="details-overlay">
+            <div class="title">The Office</div>
+            <div class="desc">Esta comédia de sucesso segue o quotidiano dos insatisfeitos funcionários, liderados pelo chefe incompetente Michael Scott, na empresa de venda de papel Dunder Mifflin.</div>
+            <div class="info">Temporadas: 9</div>
+            <div class="info">Episódios: 201</div>
+            <div class="info">Elenco: Steve Carell, Rainn Wilson, John Krasinski</div>
+          </div>
+        </div>
+
+        <!-- Série 3 -->
+        <div class="media-item" data-type="series">
+          <img src="img/24.jpg">
+          <div class="details-overlay">
+            <div class="title">Anatomia de Grey</div>
+            <div class="desc">A série acompanha o dia a dia de médicos cirurgiões e mostra evolução profissional enquanto tentam salvar vidas e equilibrar as suas relações pessoais.</div>
+            <div class="info">Temporadas: 21</div>
+            <div class="info">Elenco: Ellen Pompeo, Justin Chambers, Chandra Wilson, James Pickens Jr., Kevin McKidd, etc</div>
+          </div>
+        </div>
+
+        <!-- Série 4 -->
+        <div class="media-item" data-type="series">
+          <img src="img/25.jpg">
+          <div class="details-overlay">
+            <div class="title">Friends</div>
+            <div class="desc">Esta série segue a vida de um grupo de amigos em Nova Iorque.</div>
+            <div class="info">Temporadas: 10</div>
+            <div class="info">Episódios: 236</div>
+            <div class="info">Elenco: Jennifer Aniston, Courteney Cox, Matthew Perry, Matt LeBlanc, Lisa Kudrow, David Schwimmer, etc</div>
+          </div>
+        </div>
+
+        <!-- Série 5 -->
+        <div class="media-item" data-type="series">
+          <img src="img/26.jpg" >
+          <div class="details-overlay">
+            <div class="title">The Walking Dead</div>
+            <div class="desc">Um Xerife acorda de um coma para dar-se conta que o mundo está em ruínas, e deve liderar um grupo de sobreviventes para se manter vivo.</div>
+            <div class="info">Temporadas: 11</div>
+            <div class="info">Episódios: 177</div>
+            <div class="info">Elenco: Andrew Lincoln, Rick Grimes, Norman Reedus, Daryl Dixon, Melissa McBride, Carol Peletier, Lauren Cohan, Maggie Rhee, Christian Serratos, etc</div>
+          </div>
+        </div>
+
+        <!-- Série 6 -->
+        <div class="media-item" data-type="series">
+          <img src="img/27.jpg" >
+          <div class="details-overlay">
+            <div class="title">Game of Thrones</div>
+            <div class="desc">Nove famílias nobres lutam pelo controle sobre as terras míticas de Westeros, enquanto um antigo inimigo retorna depois de estar adormecido por milhares de anos.</div>
+            <div class="info">Temporadas: 8</div>
+            <div class="info">Episódios: 73</div>
+            <div class="info">Elenco: Daenerys Targaryen, Emilia Clarke, Tyrion Lannister, Peter Dinklage, Cersei Lannister, Lena Headey, etc</div>
+          </div>
+        </div>
+
+        <!-- Série 7 -->
+        <div class="media-item" data-type="series">
+          <img src="img/28.jpg" >
+          <div class="details-overlay">
+            <div class="title">La casa de papel</div>
+            <div class="desc">Oito ladrões trancam-se com reféns na Casa da Moeda da Espanha. O líder deste grupo, manipula a polícia para realizar um plano que pode ser o maior roubo da história ou uma missão em vão.</div>
+            <div class="info">Temporadas: 5</div>
+            <div class="info">Episódios: 41</div>
+            <div class="info">Elenco: Úrsula Corberó, Álvaro Morte, Itziar Ituño, etc</div>
+          </div>
+        </div>
+
+        <!-- Série 8 -->
+        <div class="media-item" data-type="series">
+          <img src="img/29.jpg" >
+          <div class="details-overlay">
+            <div class="title">Stranger Things</div>
+            <div class="desc">Um grupo de amigos envolve-se numa série de eventos sobrenaturais na pacata cidade de Hawkins, onde vão ter de enfrentar criaturas monstruosas, agências secretas do governo e aventurar-se em dimensões paralelas.</div>
+            <div class="info">Temporadas: 4</div>
+            <div class="info">Episódios: 34</div>
+            <div class="info">Elenco: Millie Bobby Brown, Eleven, Finn Wolfhard, Mike Wheeler, Winona Ryder, Joyce Byers, David Harbour, Jim Hopper, etc</div>             
+          </div>
+        </div>
+
+
+        <!-- Série 9 -->
+        <div class="media-item" data-type="series">
+          <img src="img/30.jpg" >
+          <div class="details-overlay">
+            <div class="title">NCIS</div>
+            <div class="desc">O Agente Leroy Jethro Gibbs lidera uma equipa de agentes especiais de elite que tem como missão investigar qualquer crime ligado à Marinha e aos Fuzileiros Navais.</div>
+            <div class="info">Temporadas: 22</div>
+            <div class="info">Episódios: 481</div>
+            <div class="info">Elenco: Mark Harmon, Michael Weatherly, Cote de Pablo, Sean Murray, Emily Wickersham, Pauley Perrette, David McCallum, etc</div>
+          </div>
+        </div>
+
+        <!-- Série 10 -->
+        <div class="media-item" data-type="series">
+          <img src="img/31.jpg" >
+          <div class="details-overlay">
+            <div class="title">Brooklyn Nine-Nine</div>
+            <div class="desc"> O despreocupado detetive Jake Peralta precisa de aprender a seguir as regras e trabalhar em equipa quando um capitão exigente assume o comando de seu esquadrão.</div>
+            <div class="info">Temporadas: 8</div>
+            <div class="info">Episódios: 153</div>
+            <div class="info">Elenco: Andy Samberg, Jake Peralta, Stephanie Beatriz, Rosa Diaz, Terry Crews, Terry Jeffords, Melissa Fumero, etc </div>
+          </div>
+        </div>
+
+        <!-- Série 11 -->
+        <div class="media-item" data-type="series">
+          <img src="img/32.jpg">
+          <div class="details-overlay">
+            <div class="title">Suits</div>
+            <div class="desc">Após impressionar um advogado importante com a sua inteligência, um homem sem curso universitário consegue um cobiçado emprego na firma, embora não tenha habilitações.</div>
+            <div class="info">Temporadas: 9</div>
+            <div class="info">Episódios: 134</div>
+            <div class="info">Elenco: Gabriel Macht, Harvey Specter, Patrick J. Adams, Mike Ross, Meghan Markle, Rachel Zane, Sarah Rafferty, etc</div>
+          </div>
+        </div>
+
+        <!-- Série 12 -->
+        <div class="media-item" data-type="series">
+          <img src="img/33.jpg">
+          <div class="details-overlay">
+            <div class="title">Squid Game</div>
+            <div class="desc">Centenas de jogadores falidos aceitam um estranho convite para competir em jogos infantis. O prémio que os espera é tentador, mas as consequências são fatais.</div>
+            <div class="info">Temporadas: 2</div>
+            <div class="info">Episódios: 16</div>
+            <div class="info">Elenco: Lee Jung-jae, Seong Gi-hun, Tom Choi, Front Man, Greg Chun, Choi Seung-hyun, Wi Ha-joon, Hwang Jun-ho, etc</div>
+          </div>
+        </div>
+
+        <!-- Série 13 -->
+        <div class="media-item" data-type="series">
+          <img src="img/34.jpg" >
+          <div class="details-overlay">
+            <div class="title">Law & Order: Special Victims Unit</div>
+            <div class="desc"> A vida e os desafios da Equipa Especial de Elite do Departamento de Polícia de Nova York. A "Special Victims Unit" investiga os crimes de caráter sexual, seguindo os passos dos detetives Elliot Stabler e Olivia Benson.</div>
+            <div class="info">Temporadas: 23</div>
+            <div class="info">Episódios: 565</div>
+            <div class="info">Elenco: Christopher Meloni, Mariska Hargitay, Richard Belzer, Dann Florek, etc</div>
+          </div>
+        </div>
+
+
+        <!-- Série 14 -->
+        <div class="media-item" data-type="series">
+          <img src="img/35.jpg">
+          <div class="details-overlay">
+            <div class="title">The Big Bang Theory</div>
+            <div class="desc">Segue a história de Leonard e Sheldon, dois físicos brilhantes que dividem o mesmo apartamento e cujas vidas mudam quando conhecem a belíssima vizinha Penny.</div>
+            <div class="info">Temporadas: 12</div>
+            <div class="info">Episódios: 279</div>
+            <div class="info">Elenco: Johnny Galecki, Jim Parsons, Kaley Cuoco, Simon Helberg, Kunal Nayyar, Sara Gilbert, Mayim Bialik, etc</div>
+          </div>
+        </div>
+
+        <!-- Série 15 -->
+        <div class="media-item" data-type="series">
+          <img src="img/36.jpg">
+          <div class="details-overlay">
+            <div class="title">Peaky Blinders</div>
+            <div class="desc">Em 1919, um infame gangue de Birmingham é liderado pelo cruel Tommy Shelby, um patrão do crime determinado a conquistar o mundo a qualquer preço.</div>
+            <div class="info">Temporadas: 6</div>
+            <div class="info">Episódios: 36</div>
+            <div class="info">Elenco: Cillian Murphy, Sam Neill, Helen McCrory, Paul Anderson, Iddo Goldberg, Annabelle Wallis, Sophie Rundle, etc</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="info-section">
+      <div class="info-category">
+        <h3>Mais Informação</h3>
+        <ul>
+          <li><a href="https://www.imdb.com/" target="_blank">IMDB</a></li>
+          <li><a href="https://www.rottentomatoes.com/" target="_blank">Rotten Tomatoes</a></li>
+        </ul>
+      </div>
+    
+      <div class="info-category">
+        <h3>Onde Ver</h3>
+        <ul>
+          <li><a href="https://www.netflix.com/" target="_blank">Netflix</a></li>
+          <li><a href="https://www.primevideo.com/" target="_blank">Prime Video</a></li>
+          <li><a href="https://www.disneyplus.com/" target="_blank">Disney+</a></li>
+          <li><a href="https://www.hbomax.com/" target="_blank">HBO Max</a></li>
+          <li><a href="https://www.apple.com/apple-tv-plus/" target="_blank">Apple TV+</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
