@@ -5,13 +5,11 @@ Foi criada uma página HTML que exibe alguns filmes e séries, e as suas respeti
 ## Estrutura do Projeto
 
 ### 1. **CSS Global**
-- **Reset de Estilos**: Todos os elementos são definidos com `margin: 0`, `padding: 0` e `box-sizing: border-box` para garantir consistência entre navegadores.
-- **Fonte**: A fonte padrão é a **Roboto** (sem serifa), com fontes adicionais para títulos (Pacifico, Lobster) e corpo (Quicksand).
-- **Cor de fundo**: O fundo da página tem uma cor suave (`#a6a4be85`), com variações nas secções.
+- Todos os elementos foram definidos com `margin: 0`, `padding: 0` e `box-sizing: border-box` para garantir consistência entre navegadores. A fonte padrão é a **Roboto** (sem serifa), com fontes adicionais para títulos (Pacifico, Lobster) e corpo (Quicksand).
 
 ### 2. **Secções**
 #### a) **Secção de Introdução**
-- Neste campo, é exibido um título e uma breve introdução à página.
+- Neste campo, é apresentado um título e uma breve introdução à página.
 
 #### b) **Grelha de Filmes e Séries**
 - Aqui é exibido uma lista de filmes e séries em formato de grelha com 5 itens por linha.
@@ -21,7 +19,7 @@ Foi criada uma página HTML que exibe alguns filmes e séries, e as suas respeti
 
 #### c) **Seção Informativa**
 - Exibe duas categorias de conteúdo: uma com informações adicionais sobre os filmes e séries, e outra com detalhes sobre as plataformas onde é possível assisti-los.
-- Cada categoria contém uma lista de links que, ao serem passados, mudam de fundo e oferecem um efeito visual de destaque.
+- Cada categoria contém uma lista de links que mudam de fundo e oferecem um efeito visual de destaque quando o utilizador passa com o cursor.
   
 ### 3. **Outros Estilos**
 - **Grelha de Imagens**: Usando o`grid-template-columns`, a grelha é dividida em 5 colunas, com espaçamento entre os itens (`gap: 20px`).
