@@ -6,7 +6,7 @@ Este trabalho consistiu na implementação de uma nova rota, que permite a visua
 ## Templates
 
 ### Template `conceitos.html`
-- Foi alterado de modo a incluir links clicáveis para cada conceito permitindo que o utilizador aceda diretamente à página de cada um.
+- Foi alterado de modo a incluir links para cada conceito permitindo que o utilizador aceda diretamente à página de cada um.
 
 ### Template `um_conceito.html`
 - Foi criado de modo a ser possível exibir os detalhes de um conceito específico (incluindo a designação e descrição).
