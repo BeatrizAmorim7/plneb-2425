@@ -6,7 +6,7 @@ Este trabalho consistiu na implementação de uma nova rota, que permite a visua
 ## Templates
 
 ### Template `conceitos.html`
-- Foi alterado de modo a incluir links para cada conceito permitindo que o utilizador aceda diretamente à página de cada um.
+- Foi alterado de modo a incluir links para cada conceito, permitindo que o utilizador aceda diretamente à página de cada um.
 
 ### Template `um_conceito.html`
 - Foi criado de modo a ser possível exibir os detalhes de um conceito específico (incluindo a designação e descrição).
@@ -16,9 +16,9 @@ Este trabalho consistiu na implementação de uma nova rota, que permite a visua
 ## Rotas
 ###  Rota `/conceitos/<designacao>`
 
-- Permite visualizar a descrição de um conceito específico.
-- Faz o render do template `um_conceito.html` que exibe a designação e descrição do conceito.
-- O valor de designacao é capturado diretamente do URL e usado para procurar a descrição correspondente no dicionário de conceitos.
+- Permite visualizar a designação e descrição de um conceito específico.
+- Faz o render do template `um_conceito.html`.
+- O valor da designacao é obtido diretamente através do URL e é usado para procurar a descrição correspondente no dicionário de conceitos.
 
 ### Rota `/conceitos`
    - Esta rota exibe a lista de conceitos.
