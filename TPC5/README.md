@@ -1,6 +1,6 @@
 # TPC5 - Desenvolvimento de Rotas em Flask
 
-Este trabalho consistiu na implementação de uma nova rota, que permite a visualização específica de cada conceito médico, incluindo a respetiva descrição. Foi também implementada a possibilidade de aceder à página de cada conceito diretamente ao clicar sobre ele na lista de conceitos criada anteriormente na aula.
+Este trabalho consistiu na implementação de uma nova rota, que permite a visualização específica de cada conceito médico, incluindo a respetiva descrição. Foi também implementada a possibilidade de aceder à página de cada conceito diretamente ao clicar sobre ele, na lista de conceitos criada anteriormente na aula.
 
 ## Templates
 
