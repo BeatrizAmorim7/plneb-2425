@@ -1,4 +1,4 @@
-## TPC6 - Funcionalidade de pesquisa no dicionário médico
+### TPC6 - Funcionalidade de pesquisa no dicionário médico
 
 Este TPC6 consistiu na implementação de uma funcionalidade de pesquisa para a aplicação desenvolvida nas últimas aulas, referente ao dicionário médico. 
 
