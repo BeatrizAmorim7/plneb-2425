@@ -1,6 +1,7 @@
 ## TPC6 - Funcionalidade de pesquisa no dicionário médico
 
 Este TPC6 consistiu na implementação de uma funcionalidade de pesquisa para a aplicação desenvolvida nas últimas aulas, referente ao dicionário médico. 
+
 A funcionalidade permite aos utilizadores a pesquisa de uma palavra específica no dicionário. São devolvidas as ocorrências dessa palavra tanto na designação quanto na descrição dos conceitos.
 
 
