@@ -52,9 +52,6 @@ def adicionar_conceito():
     return render_template("conceitos.html", designacoes=designacoes, title ="Lista de conceitos")
 
 
-#TPC ---------------------------------------------------------------
-#Criar a rota /conceitos/<designacao> => fazer render template de um conceito e pôr a lista dos conceitos clicável (vai para a rota criada)
-
 @app.route('/conceitos')
 def conceitos():
     designacoes = list(db.keys())
@@ -69,7 +66,7 @@ def conceito_detalhe(designacao):
         return render_template('um_conceito.html', designacao="Erro", descricao="Descrição não encontrada")
 
 
-
+TPC-------------------------------------------------------------------------------------------
 #por o botão pesquisar a funcionar - rota para pesquisar, uma nova página para pesquisar (com uma text input e um 
 # botão quando clico no botão na mesma página apareça o termo e a descrição aparecerem em baixo com todas as 
 # ocorrencias da palavra escrita => e aparecer com bold )
