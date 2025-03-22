@@ -17,6 +17,6 @@ O utilizador digita uma palavra no campo de pesquisa e clica no botão "Pesquisa
 
 ### Templates
 - **`pesquisa.html`:** Página de pesquisa e apresentação dos resultados.
-- Utilização da tag `<b>` para destacar a palavra pesquisada em negrito.
+- Utilização da tag `<b>` para destacar a palavra pesquisada a negrito.
 ---
 
