@@ -1,0 +1,49 @@
+{% extends 'layout.html' %}
+
+{% block head %}
+    <title>Pesquisar Conceitos</title>
+{% endblock %}
+
+{% block body %}
+    <div class="container mt-5">
+        <div class="mt-5">
+            <a href="/" class="btn btn-secondary">Voltar</a>
+        </div>
+
+        <h1 class="text-center mb-4">Pesquisar Conceitos</h1>
+
+        <form method="POST" action="/pesquisar" class="row">
+            <div class="col-12 col-md-8">
+                <input type="text" name="palavra" class="form-control" placeholder="Digite uma palavra para pesquisar" value="{{ palavra }}">
+            </div>
+            <div class="col-12 col-md-4 mt-2 mt-md-0">
+                <button type="submit" class="btn btn-primary w-100">Pesquisar</button>
+            </div>
+        </form>
+
+        {% if resultados %}
+            <h2 class="mt-5">Resultados para "{{ palavra }}":</h2>
+            <ul class="list-group mt-3">
+                {% for designacao, designacao_destacada, descricao_destacada in resultados %}
+                    <li class="list-group-item">
+                        <!-- Destacar a designação se for igual à palavra pesquisada -->
+                        <a href="{{ url_for('conceito_detalhe', designacao=designacao) }}" class="h5">
+                            {% if designacao == palavra %}
+                                <b>{{ designacao }}</b>  <!-- Usando <b> -->
+                            {% else %}
+                                {{ designacao }}
+                            {% endif %}
+                        </a>
+                        <br>
+                        <!-- Destacar a palavra pesquisada na descrição, se ela existir -->
+                        <span>
+                            {{ descricao_destacada | replace(palavra, '<b>' + palavra + '</b>') | safe }}
+                        </span> 
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p class="mt-4">Nenhum resultado encontrado.</p>
+        {% endif %}
+    </div>
+{% endblock %}
