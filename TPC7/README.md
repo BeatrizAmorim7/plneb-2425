@@ -11,9 +11,9 @@ O objetivo deste trabalho foi melhorar a tabela de conceitos, tornando-a mais at
 A tabela foi melhorada com o uso do plugin **DataTables** do jQuery. Foram aplicadas as seguintes classes CSS:
 
 - **`display`**: Aplica o estilo padrão do DataTables, permitindo funcionalidades como a paginação, ordenação e pesquisa.
-- **`stripe`**: Adiciona uma alternância de cores nas linhas da tabela, facilitando a leitura.
+- **`stripe`**: Adiciona uma alternância de cores nas linhas da tabela.
 - **`hover`**: Destaca as linhas quando o cursor do mouse passa sobre elas.
-- **`cell-border`**: Adiciona bordas visíveis nas células para um layout mais organizado e profissional.
+- **`cell-border`**: Adiciona bordas visíveis nas células.
 
 Exemplo do código de tabela em HTML:
 
