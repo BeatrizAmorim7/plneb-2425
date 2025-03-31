@@ -1,6 +1,6 @@
 # TPC7
 
-O objetivo deste trabalho foi melhorar a tabela de conceitos, tornando-a mais atraente visualmente, ativando a pesquisa por **expressões regulares (regex)** e adicionando uma opção de navegação para a tabela na **navbar** do layout. 
+O objetivo deste trabalho foi melhorar a tabela de conceitos, tornando-a mais atraente visualmente, também foi ativada a pesquisa por **expressões regulares (regex)** e adicionada uma opção de navegação para a tabela na **navbar** do layout. 
 
 ---
 
