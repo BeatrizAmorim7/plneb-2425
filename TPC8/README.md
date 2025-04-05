@@ -31,7 +31,7 @@ Para cada doença, o JSON final contém:
   - **`Artigos Relacionados`**, identificados por `h3` com links;
   - **`Nota`** final (se existir).
 
-
+---
 ## Funções principais:
 
 ### 1. `get_doenca_info(url_href)`
