@@ -27,7 +27,7 @@ Para cada doença, o JSON final contém:
   - **`Data`**: data de publicação da página;
   - **`Descrição`**: parágrafos introdutórios;
   - **Secções como `Sintomas`, `Causas`, `Tratamento`** quando identificados por `h2` no HTML;
-  - **Listas** de `sintomas` (quando encontrados elementos `ul > li`);
+  - Listas de **`sintomas`** (quando encontrados elementos `ul > li`);
   - **`Artigos Relacionados`**, identificados por `h3` com links;
   - **`Nota`** final (se existir).
 
