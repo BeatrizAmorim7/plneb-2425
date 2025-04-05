@@ -4,7 +4,7 @@
 Este TPC tem como objetivo principal a **extração estruturada de informação** sobre doenças a partir do site [Atlas da Saúde](https://www.atlasdasaude.pt/doencasAaZ).
 
 O site apresenta uma lista de doenças organizadas alfabeticamente, onde cada entrada contém:
-- Um pequeno resumo da doença
+- Um pequeno resumo da doença;
 - Um link para uma página com mais informação detalhada, como sintomas, causas, tratamento, artigos relacionados, entre outros.
 
 ---
