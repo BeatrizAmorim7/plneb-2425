@@ -32,7 +32,7 @@ Para cada doença, o JSON final contém:
   - **`Nota`** final (se existir).
 
 
-#### Funções principais:
+## Funções principais:
 
 ### 1. `get_doenca_info(url_href)`
 
