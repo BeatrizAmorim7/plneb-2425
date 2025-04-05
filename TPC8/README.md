@@ -13,7 +13,7 @@ O site apresenta uma lista de doenças organizadas alfabeticamente, onde cada en
 1. Aceder à lista de doenças no site, organizadas por letra (de A a Z);
 2. Aceder à página de cada doença;
 3. Extrair e organizar as principais informações textuais dessas páginas;
-4. Guardar toda a informação num ficheiro `JSON` com o nome `tpc8.json`.
+4. Guardar a informação num ficheiro `JSON` com o nome `tpc8.json`.
 
 ---
 
