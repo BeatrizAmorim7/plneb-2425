@@ -31,7 +31,7 @@ Para cada doença, o JSON final contém:
   - **Nota** final (se existir).
 
 
-O código está dividido em 3 partes principais:
+#### O código está dividido em 3 partes principais:
 
 ### 1. `get_doenca_info(url_href)`
 
