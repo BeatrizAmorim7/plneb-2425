@@ -3,7 +3,7 @@
 
 Este TPC tem como objetivo principal a **extração estruturada de informação** sobre doenças a partir do site [Atlas da Saúde](https://www.atlasdasaude.pt/doencasAaZ).
 
-O site apresenta uma listagem de doenças organizadas alfabeticamente, onde cada entrada contém:
+O site apresenta uma lista de doenças organizadas alfabeticamente, onde cada entrada contém:
 - Um pequeno resumo da doença
 - Um link para uma página com mais informação detalhada, como sintomas, causas, tratamento, artigos relacionados, entre outros.
 
@@ -21,12 +21,12 @@ O site apresenta uma listagem de doenças organizadas alfabeticamente, onde cada
 
 Para cada doença, o JSON final contém:
 
-- **`url`**: o link completo da página da doença;
-- **`Resumo`**: o pequeno parágrafo de resumo presente na listagem inicial;
+- **`url`**: o link da página da doença;
+- **`Resumo`**: o parágrafo de resumo presente na listagem inicial;
 - **`content`**: um dicionário com a informação detalhada da doença, que pode incluir:
   - **`Data`**: data de publicação da página;
   - **`Descrição`**: parágrafos introdutórios;
-  - **Secções com títulos dinâmicos** (ex: "Sintomas", "Causas", "Tratamento", etc.), quando identificados por `h2` no HTML;
+  - **Secções com títulos que poderão existir ou não** (ex: "Sintomas", "Causas", "Tratamento", etc.), quando identificados por `h2` no HTML;
   - **Listas** de sintomas ou outros itens (quando encontrados elementos `ul > li`);
   - **Artigos Relacionados**, identificados por `h3` com links;
   - **Nota** final (se existir).
