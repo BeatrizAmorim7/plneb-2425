@@ -1,17 +1,17 @@
 #  Word2Vec
 
-Este TPC consistiu na criação de um modelo Word2Vec utilizando a biblioteca **gensim**, com base em dois livros de Harry Potter:  
+Este TPC consistiu na criação de um modelo *Word2Vec* utilizando a biblioteca **gensim**, com base em dois livros do *Harry Potter*:  
 - *Harry Potter e a Pedra Filosofal*  
 - *Harry Potter e a Câmara dos Segredos*
 
-O objetivo é criar *embeddings* de palavras para analisar relações semânticas entre palavras, como nomes de personagens, objetos e conceitos, no contexto destes textos.
+O objetivo é criar *embeddings* de palavras para analisar relações semânticas entre palavras, como nomes de personagens, objetos e conceitos, no contexto destes livros.
 
 
 
 ### Preparação dos Dados
 - Foram lidos dois ficheiros de texto (`Harry_Potter_e_A_Pedra_Filosofal.txt` e `Harry_Potter_Camara_Secreta-br.txt`).
 - Cada linha foi tokenizada em palavras minúsculas com `gensim.utils.tokenize`.
-- Os tokens foram agrupados numa lista de frases (`sents`) para treinar o modelo.
+- Os *tokens* foram agrupados numa lista de frases (`sents`) para treinar o modelo.
 
 ### Treino do Modelo
 - O modelo **Word2Vec** foi treinado com:
@@ -20,8 +20,11 @@ O objetivo é criar *embeddings* de palavras para analisar relações semântica
 
 
 # Resultados
+
+Apresentam-se, de seguida, os principais resultados obtidos a partir de vários exemplos realizados com o modelo *Word2Vec*, incluindo palavras mais frequentes, similaridade semântica e analogias entre termos. Estes exemplos demonstram como o modelo interpreta e relaciona as palavras no contexto dos livros.
+
 ## 1. Palavras Mais Frequentes: 
-O método `model.wv.index_to_key` permite aceder às palavras mais frequentes que foram aprendidas durante o treino do modelo Word2Vec. A instrução seguinte imprime as 100 palavras com maior frequência no vocabulário:
+O método `model.wv.index_to_key` permite aceder às palavras mais frequentes que foram aprendidas durante o treino do modelo *Word2Vec*. A linha de código seguinte, imprime as 100 palavras com maior frequência no vocabulário:
 
 **Input:**
 ```python
@@ -36,7 +39,7 @@ print(list(model.wv.index_to_key[:100]))
 
 ## 2. Similaridade de palavras:
 
-A função `model.wv.similarity(palavra1, palavra2)` calcula o grau de similaridade entre duas palavras com base nos seus vetores do modelo. Abaixo, apresenta-se um exemplo de utilização e o respetivo resultado:
+A função `model.wv.similarity(palavra1, palavra2)` calcula o grau de similaridade entre duas palavras com base nos vetores do modelo. Abaixo, apresenta-se um exemplo de utilização e o respetivo resultado:
 
 **Input:**
 ```python
@@ -59,7 +62,7 @@ Os valores de similaridade para outros pares de palavras testados encontram-se r
 
 ## 3. Palavras Mais Semelhantes
 
-Utilizando o método `model.wv.most_similar()`, é possível identificar as palavras que o modelo Word2Vec considera semanticamente mais próximas de uma palavra dada — quanto maior o valor, mais semelhantes são os contextos em que as palavras aparecem.
+Utilizando o método `model.wv.most_similar()`, é possível identificar as palavras que o modelo *Word2Vec* considera semanticamente mais próximas de uma palavra dada — quanto maior o valor, mais semelhantes são os contextos em que as palavras aparecem.
 
 ### Exemplo 1:
 **Input:**
@@ -81,7 +84,7 @@ model.wv.most_similar('harry')
  ('lentamente', 0.5137933492660522)]
 ```
 
-Observa-se, por exemplo, que palavras como neville, mione, draco e rony surgem como próximas de harry, refletindo a proximidade desses personagens ao protagonista na narrativa. 
+Observa-se, por exemplo, que palavras como "neville", "mione", "draco" e "rony" surgem como próximas de "harry", refletindo a proximidade destas personagens ao protagonista da história. 
 
 ### Exemplo 2:
 **Input:**
@@ -103,7 +106,7 @@ model.wv.most_similar('dumbledore')
  ('ajudar', 0.5664731860160828)]
 ```
 
-De forma semelhante, nomes como "flitwick", "binns", "snape" e "hagrid" aparecem como semanticamente semelhantes a dumbledore, todos eles professores ou figuras de autoridade em Hogwarts.
+De forma semelhante, nomes como "flitwick", "binns", "snape" e "hagrid" aparecem como semanticamente próximas a "dumbledore", todos eles professores ou figuras de autoridade em Hogwarts.
 
 ### Exemplo 3:
 **Input:**
@@ -125,7 +128,7 @@ model.wv.most_similar('sonserina')
  ('biblioteca', 0.7218431234359741)]
 ```
 
-
+Neste exemplo, o modelo identificou palavras semanticamente próximas de "sonserina", como "grifinória", "corvinal" e "magia", refletindo a relação entre as casas de Hogwarts, que compartilham características semelhantes. Além disso, palavras como "taça", "torre", "escola" e "biblioteca" também estão associadas, pois são locais e elementos dentro do ambiente de Hogwarts e das casas.
 
 ## 4. Analogias
 
@@ -154,7 +157,7 @@ model.wv.most_similar(positive=['grifinória', 'malfoy'], negative=['harry'])
 Esta procura tenta identificar quem, na perspetiva de Malfoy, teria um papel semelhante ao de Harry em "Grifinória". Como Harry é um dos principais representantes da "Grifinória" e Malfoy é associado à "Sonserina", o modelo procura uma figura equivalente a Harry, mas do lado do rival.
 - **weasley, lufa, corvinal, sonserina**: referem-se a outras casas ou membros de casas, indicando a relação entre personagens e equipas.
 - **pontos, capitão, troféus**: referem-se a contextos competitivos entre as casas de Hogwarts.
-- **existência, figg, mason**: personagens ou termos que podem representar ligações indiretas ou contrastantes.
+- **existência, figg, mason**: personagens ou termos que podem representar ligações indiretas.
 
 
 ### Exemplo 2:
@@ -189,9 +192,9 @@ Esta analogia procura captar o universo positivo e académico de Dumbledore e da
 
 
 
-### Palavra fora do contexto
+## 5. Palavra fora do contexto
 
-A função `doesnt_match` permite identificar que palavra não se encaixa no contexto das outras palavras, com base nos padrões que foram apreendidos pelo modelo.
+A função `doesnt_match` permite identificar que palavra não se encaixa no contexto das outras palavras, com base nos padrões que foram aprendidos pelo modelo.
 
 ### Exemplo 1:
 
@@ -235,7 +238,7 @@ model.wv.doesnt_match(['varinha', 'vassoura', 'livro'])
 ```
 
 
-A palavra "Livro" foi identificada como fora de contexto, já que, enquanto "varinha" e "vassoura" são objetos mágicos utilizados em Hogwarts, "livro" é um objeto mais genérico e não está diretamente associado à prática mágica, destacando-se semanticamente das outras palavras.
+A palavra "livro" foi identificada como fora de contexto, já que, enquanto "varinha" e "vassoura" são objetos mágicos utilizados em Hogwarts, "livro" é um objeto mais genérico e não está diretamente associado à prática mágica, destacando-se semanticamente das outras palavras.
 
 
 
@@ -249,7 +252,7 @@ Os vetores foram guardados como `model_harry.txt`, através do comando:
   ```
 
   
-Posteriormente, o modelo foi convertido com `gensim.scripts.word2vec2tensor` e preparado para visualização no [TensorFlow Projector](https://projector.tensorflow.org/), permitindo explorar visualmente os embeddings, através do comando:
+Posteriormente, o modelo foi convertido com `gensim.scripts.word2vec2tensor` e preparado para visualização no [TensorFlow Projector](https://projector.tensorflow.org/), permitindo explorar visualmente os *embeddings*, através do comando:
 
 ```bash
 python -m gensim.scripts.word2vec2tensor -i model_harry.txt -o model_harry
@@ -261,14 +264,17 @@ Com isto, foram criados dois ficheiros, o `model_harry_metadata.tsv` e o `model_
 
 ### Visualização no TensorFlow Projector
 
-Após a conversão do modelo para o formato adequado, podemos explorar os embeddings gerados diretamente na plataforma TensorFlow Projector. Esta ferramenta permite visualizar a relação entre os vetores de palavras, proporcionando uma representação gráfica das similaridades e distâncias entre as palavras do modelo.
+Após a conversão do modelo para o formato adequado, podemos explorar os *embeddings* gerados diretamente na plataforma **TensorFlow Projector**. Esta ferramenta permite visualizar a relação entre os vetores de palavras, proporcionando uma representação gráfica das similaridades e distâncias entre as palavras do modelo.
 
-As imagens a seguir ilustram algumas das visualizações geradas pelo TensorFlow Projector, mostrando como os embeddings do modelo de "Harry Potter" foram organizados.
+As imagens a seguir ilustram algumas das visualizações geradas pelo *TensorFlow*, mostrando como os *embeddings* do modelo de "Harry Potter" foram organizados.
 
 ![Imagem 1](pln1.png)
 
+
 ![Imagem 2](pln2.png)
 
+
 ![Imagem 3](pln3.png)
+
 
 ![Imagem 4](pln4.png)
