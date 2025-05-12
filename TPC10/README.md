@@ -54,7 +54,6 @@ O *script* em Python utiliza a biblioteca `requests` para obter conteúdo HTML e
     "publish_date": "2024-12-19",
     "pdf_link": "https://revista.spmi.pt/index.php/rpmi/article/view/188-92/1896"
   },
-  ...
 ]
 ```
 
