@@ -1,4 +1,4 @@
-# Web Scraping Project: Revista Portuguesa de Medicina Interna
+# Web Scraping: Revista Portuguesa de Medicina Interna
 
 O objetivo deste TPC, foi extrair dados de artigos da *Revista Portuguesa de Medicina Interna*, disponível em `https://revista.spmi.pt`. Assim, o *script* desenvolvido, recolhe, através de *Web Scrapping*: o título, URL, autores, edição, resumo, palavras-chave, data da publicação e link do PDF. Estas informações são então guardadas num ficheiro JSON  (`revista.json`).
 
