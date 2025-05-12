@@ -17,7 +17,7 @@ O ficheiro JSON, contém uma lista de dicionários, cada um representando um art
 - **pdf_link**: O URL do PDF ou uma string vazia se não existir.
 
 ## Script 
-O script em Python utiliza a biblioteca `requests` para obter conteúdo HTML e `BeautifulSoup` (de bs4) para o analisar. O script conta três funções principais:
+O *script* em Python utiliza a biblioteca `requests` para obter conteúdo HTML e `BeautifulSoup` (de bs4) para o analisar. O *script* conta com três funções principais:
 
 1. `get_issue_urls`: Obtém os URLs das edições recentes da revista.
 2. `extract_article_info`: Extrai os dados da página de um artigo.
